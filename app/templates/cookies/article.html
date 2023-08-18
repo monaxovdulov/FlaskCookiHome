@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Article</title>
+	</head>
+	
+	<body style="
+		{% if request.cookies.get('font') %}
+			font-family:{{ request.cookies.get('font') }}
+		{% endif %}">
+
+		Select Font Preference: <br>
+		<form action="" method="post">
+			<select name="font" onchange="submit()">
+				<option value="">----</option>
+				<option value="consolas" 
+					{% if request.cookies.get('font') == 'consolas' %}
+						selected
+					{% endif %}>
+					consolas</option>
+					
+				<option value="arial" 
+					{% if request.cookies.get('font') == 'arial' %}
+						selected
+					{% endif %}>
+					arial</option>
+					
+				<option value="verdana" 
+					{% if request.cookies.get('font')== 'verdana' %}
+						selected
+					{% endif %}>
+					verdana</option>
+			</select>
+		</form>
+
+		<h1>Заголовок.</h1>
+		<p>Текст</p>
+		<script>
+		document.cookie = "foo=bar;";
+		if (!document.cookie)
+		{
+			alert("This website requires cookies to function properly");
+		}
+	</script>
+	</body>
+	
+	<script>
+		document.cookie = "foo=bar;";
+		if (!document.cookie)
+		{
+			alert("This website requires cookies to function properly");
+		}
+	</script>
+</html>
